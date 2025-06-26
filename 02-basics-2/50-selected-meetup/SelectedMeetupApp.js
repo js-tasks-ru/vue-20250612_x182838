@@ -5,7 +5,7 @@ export default defineComponent({
   name: 'SelectedMeetupApp',
 
   setup() {
-    const meetupCount  = ref(5)
+    const meetupCount = ref(5)
     const currentMeetupId = ref(1)
     const currentMeetupTitle = ref('')
 
@@ -15,14 +15,18 @@ export default defineComponent({
     const showPreviousSlide = () => currentMeetupId.value > 1 && --currentMeetupId.value
     const showNextSlide = () => currentMeetupId.value < meetupCount.value && ++currentMeetupId.value
 
-    const getCurrentMeetupTitle = async (id) => {
+    const getCurrentMeetupTitle = async id => {
       const meetup = await getMeetup(id)
       currentMeetupTitle.value = meetup.title
     }
 
-    watch(currentMeetupId, () => {
-      getCurrentMeetupTitle(currentMeetupId.value)
-    },{immediate: true})
+    watch(
+      currentMeetupId,
+      () => {
+        getCurrentMeetupTitle(currentMeetupId.value)
+      },
+      { immediate: true },
+    )
 
     return {
       meetupCount,
