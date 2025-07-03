@@ -1,0 +1,15 @@
+.weather-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.weather-details__item {
+  display: flex;
+  flex-direction: column;
+}
+
+.weather-details__item-label {
+  color: var(--grey-8);
+}

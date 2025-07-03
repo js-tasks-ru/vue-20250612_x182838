@@ -1,0 +1,8 @@
+.weather-alert {
+  background-color: #fff2cc;
+  padding: 10px;
+}
+
+.weather-alert__icon {
+  margin-right: 10px;
+}
