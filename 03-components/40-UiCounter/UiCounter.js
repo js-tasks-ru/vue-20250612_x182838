@@ -1,4 +1,4 @@
-import { defineComponent, ref } from 'vue'
+import { defineComponent } from 'vue'
 import { UiButton } from '@shgk/vue-course-ui'
 import './UiCounter.css'
 
@@ -29,11 +29,6 @@ export default defineComponent({
   emits: ['update:count'],
 
   setup(props, { emit }) {
-    // Рекомендуется для практики реализовать обработку событий внутри setup, а не непосредственно в шаблоне
-
-    const disabledDecrement = ref(false)
-    const disabledIncrement = ref(false)
-
     const decrement = () => {
       if (props.count > props.min) {
         emit('update:count', props.count - 1)
@@ -49,8 +44,6 @@ export default defineComponent({
     return {
       decrement,
       increment,
-      disabledDecrement,
-      disabledIncrement,
     }
   },
 
