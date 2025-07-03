@@ -35,7 +35,6 @@ export function getEmails() {
 
 export default defineComponent({
   name: 'MarkedEmailsApp',
-
   components: {
     UiFormGroup,
     UiInput,
@@ -53,7 +52,7 @@ export default defineComponent({
       }))
     })
 
-    function removeEmailByIndex(index) {
+    const removeEmailByIndex = index => {
       emails.value.splice(index, 1)
     }
 
@@ -69,7 +68,7 @@ export default defineComponent({
       <UiFormGroup>
         <UiInput v-model.trim="query" type="search" placeholder="Поиск" aria-label="Поиск" small />
       </UiFormGroup>
-      <EmailList :emails="markedEmails" />
+      <EmailList @deleteEmail="removeEmailByIndex" :emails="markedEmails" />
     </div>
   `,
 })

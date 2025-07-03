@@ -1,0 +1,7 @@
+.weather-conditions {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  font-size: 48px;
+  font-weight: lighter;
+}

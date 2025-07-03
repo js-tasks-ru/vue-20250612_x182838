@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { mount, VueWrapper } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import UiCounter from '../UiCounter.js'
 
 function mountUiCounter({ count, min, max }: { count: number; min?: number; max?: number }) {

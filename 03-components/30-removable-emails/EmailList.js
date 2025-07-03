@@ -15,12 +15,25 @@ export default defineComponent({
     },
   },
 
+  emits: ['deleteEmail'],
+
+  setup(props, { emit }) {
+    const deleteEmail = index => {
+      emit('deleteEmail', index)
+    }
+
+    return {
+      deleteEmail,
+    }
+  },
+
   template: `
     <ul class="emails-list unstyled-list" aria-label="Emails">
       <EmailListItem
+        @delete="deleteEmail(index)"
         v-for="({ email, isMarked }, index) in emails"
         :key="email"
-        :email="email"
+        :email
         :marked="isMarked"
       />
     </ul>
