@@ -4,8 +4,9 @@ import { ref } from 'vue'
 import MeetupsAuthForm from '../components/MeetupsAuthForm.vue'
 import LayoutAuth from '../components/LayoutAuth.vue'
 import { register } from '../api.ts'
-import { router } from '../router/router.ts'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const email = ref('demo@email')
 const fullname = ref('Demo Organizer')
 const password = ref('password')

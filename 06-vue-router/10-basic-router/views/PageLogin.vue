@@ -4,17 +4,17 @@ import { ref } from 'vue'
 import MeetupsAuthForm from '../components/MeetupsAuthForm.vue'
 import LayoutAuth from '../components/LayoutAuth.vue'
 import { login } from '../api.ts'
-import { router } from '../router/router.ts'
+import { useRouter, useRoute } from 'vue-router'
 
+const router = useRouter()
+const currentRoute = useRoute()
 const email = ref('demo@email')
 const password = ref('password')
-// const router = useRouter()
 
 async function onSubmit() {
   try {
     await login(email.value, password.value)
     // Авторизация прошла успешно
-    const currentRoute = router.currentRoute.value
     const redirectPath = currentRoute.query.from
     router.push(redirectPath ? redirectPath.toString() : '/')
   } catch (error) {
